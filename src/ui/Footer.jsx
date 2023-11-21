@@ -4,7 +4,7 @@ import FooterSlide from "./FooterSlide";
 
 export default function Footer() {
   return (
-    <footer className=" flex flex-col items-center justify-center text-slate-50 ">
+    <footer className=" flex flex-col items-center justify-center text-slate-50   ">
       <FooterSlide>
         <FooterMenu>Inicio</FooterMenu>
         <FooterMenu>Parceiros</FooterMenu>
