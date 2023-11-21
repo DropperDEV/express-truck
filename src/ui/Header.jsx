@@ -2,7 +2,7 @@ import LoginIcon from "./../features/account/LoginIcon";
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-around bg-stone-950 px-4 py-4 sm:px-6">
+    <header className="flex items-center justify-around bg-stone-950 px-4 py-4 sm:px-6 w-full">
       <h1 className=" text-center text-base font-bold tracking-normal text-slate-50  sm:text-xl lg:text-2xl">
         Express <br />
         <span className=" bg-slate-50 text-stone-950">

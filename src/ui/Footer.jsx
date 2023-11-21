@@ -1,6 +1,6 @@
-import FooterAbout from "./FooterAbout";
-import FooterMenu from "./FooterMenu";
-import FooterSlide from "./FooterSlide";
+import FooterAbout from "./FooterComponents/FooterAbout";
+import FooterMenu from "./FooterComponents/FooterMenu";
+import FooterSlide from "./FooterComponents/FooterSlide";
 
 export default function Footer() {
   return (
