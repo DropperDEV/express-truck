@@ -12,6 +12,9 @@ export default {
         violet: {
           1000: "#5F22D8",
         },
+        gray:{
+          1000: "#D9D9D9",
+        }
       },
     },
   },
