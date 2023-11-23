@@ -112,9 +112,9 @@ export default function Home() {
         action=""
         className="flex w-full flex-col items-center justify-center gap-6 bg-gray-1100 p-16"
       >
-        <h2 className="font-bold text-xl">Faça um Orçamento </h2>
-        <div className="flex flex-row items-center justify-center gap-10">
-          <div className="  grid grid-rows-3 gap-8 ">
+        <h2 className="text-xl font-bold">Faça um Orçamento </h2>
+        <div className="flex flex-col items-center justify-center gap-10 md:flex-row">
+          <div className="  grid grid-rows-3 gap-16 md:gap-8 ">
             <div className="flex h-fit  w-fit  flex-col justify-center place-self-center text-xl">
               <label htmlFor="">
                 <span className=" text-red-700">*</span> Nome
@@ -134,7 +134,7 @@ export default function Home() {
               <input type="text" className="w-fit bg-gray-1000 px-8 py-3" />
             </div>
           </div>
-          <div className=" grid  gap-8 ">
+          <div className=" grid  gap-16 md:gap-8">
             <div className="flex h-fit  w-fit  flex-col justify-center place-self-center text-xl">
               <label htmlFor="">
                 <span className=" text-red-700">*</span> Pesagem da carga
@@ -145,7 +145,11 @@ export default function Home() {
               <label htmlFor="">
                 <span className=" text-red-700">*</span> Mais informações
               </label>
-              <textarea className="bg-gray-1000 resize-none" cols="25"  rows="5"></textarea>
+              <textarea
+                className="resize-none bg-gray-1000"
+                cols="25"
+                rows="5"
+              ></textarea>
             </div>
           </div>
         </div>
