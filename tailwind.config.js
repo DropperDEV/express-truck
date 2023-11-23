@@ -14,6 +14,7 @@ export default {
         },
         gray:{
           1000: "#D9D9D9",
+          1100: "#F6F6F6"
         }
       },
     },
