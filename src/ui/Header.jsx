@@ -1,4 +1,4 @@
-import LoginIcon from "./../features/account/LoginIcon";
+import LoginIcon from "./Icons/Login";
 
 export default function Header() {
   return (
