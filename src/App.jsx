@@ -2,7 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AppLayout from "./ui/AppLayout";
 import Error from "./ui/Error";
 import Home from "./ui/Home";
-import Terms from "./features/terms/Terms";
+import Terms, { loader as termsLoader } from "./features/terms/Terms";
 import Account from "./features/account/Account";
 import About from "./features/about/About";
 import Partners from "./features/partners/Partners";
@@ -16,7 +16,12 @@ export default function App() {
       errorElement: <Error />,
       children: [
         { path: "/", element: <Home />, errorElement: <Error /> },
-        { path: "/terms", element: <Terms />, errorElement: <Error /> },
+        {
+          path: "/terms",
+          element: <Terms />,
+          errorElement: <Error />,
+          loader: termsLoader,
+        },
         {
           path: "/account/myaccount",
           element: <Account />,
