@@ -9,6 +9,13 @@ export default function Input({ inputType, text }) {
         rows="5"
       ></textarea>
     );
-  if (inputType === "Login/Register") return <input type="text" className="w-fit bg-slate-50 p-5 focus:outline-none  text-xl rounded-lg" placeholder={text}  />
-    return <input type="text" className="w-fit bg-gray-1000 px-8 py-3" />;
+  if (inputType === "Login/Register")
+    return (
+      <input
+        type="text"
+        className="w-fit rounded-lg bg-slate-50 px-14 py-8  text-2xl focus:outline-none"
+        placeholder={text}
+      />
+    );
+  return <input type="text" className="w-fit bg-gray-1000 px-8 py-3" />;
 }
