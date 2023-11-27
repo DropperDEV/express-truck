@@ -1,8 +1,8 @@
 import Square from "./Square";
-import Truck from "../Icons/Truck";
-import Engine from "../Icons/Engine";
-import Puzzle from "../Icons/Puzzle";
-import Box from "../Icons/Box";
+import Truck from "../../ui/Icons/Truck";
+import Engine from "../../ui/Icons/Engine";
+import Puzzle from "../../ui/Icons/Puzzle";
+import Box from "../../ui/Icons/Box";
 
 export default function Feature() {
     return (
