@@ -8,8 +8,8 @@ import FormLogin from "./FormLogin";
 export default function SignUp() {
   return (
     <div
-      className=" bg-slate-50 bg-right-bottom flex h-[60rem] flex-row items-center
-    justify-center gap-24  bg-[url('../../../public/signBG.png')] bg-no-repeat  "
+      className=" flex h-[60rem]  flex-row items-center justify-center
+    gap-24 bg-slate-50  bg-[url('../../../public/signBG.png')] bg-right-bottom bg-no-repeat  "
     >
       <Confirm>
         <div className="flex w-fit flex-col gap-7 px-12 pt-14">
