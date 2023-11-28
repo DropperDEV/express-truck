@@ -13,7 +13,7 @@ export default function Input({ inputType, text }) {
     return (
       <input
         type="text"
-        className="w-fit rounded-lg bg-slate-50 px-14 py-8  text-2xl focus:outline-none"
+        className="w-fit rounded-lg bg-slate-50 px-2  py-2 text-sm focus:outline-none sm:px-6 sm:py-3 sm:text-lg lg:px-14    lg:py-8 lg:text-2xl"
         placeholder={text}
       />
     );

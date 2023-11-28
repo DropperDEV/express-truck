@@ -9,11 +9,11 @@ import FormLogin from "./FormLogin";
 export default function Login() {
   return (
     <div
-      className=" flex h-[60rem] flex-row items-center justify-center
-    gap-24 bg-[url('../../../public/loginBG.png')]  bg-left-top bg-no-repeat  "
+      className=" flex h-[60rem] flex-col items-center justify-center gap-5  sm:gap-24
+    bg-[url('../../../public/loginBG.png')] bg-left-top  bg-no-repeat md:flex-row  "
     >
       <Confirm>
-        <div className="flex w-fit flex-col gap-7 px-12 pt-14">
+        <div className="flex w-fit flex-col lg:px-7 lg:pt-8 xl:gap-7 xl:px-12 xl:pt-14">
           <Welcome>
             Bem <br className="mb-4" /> Vindo!
           </Welcome>
@@ -22,7 +22,7 @@ export default function Login() {
         </div>
       </Confirm>
 
-      <div className="flex flex-col gap-6 ">
+      <div className="flex flex-col gap-4 sm:gap-6 ">
         <Title title="Login" />{" "}
         <FormLogin>
           <div className="flex flex-col items-center justify-center gap-5 ">

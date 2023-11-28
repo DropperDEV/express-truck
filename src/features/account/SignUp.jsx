@@ -8,13 +8,13 @@ import FormLogin from "./FormLogin";
 export default function SignUp() {
   return (
     <div
-      className=" flex h-[60rem]  flex-row items-center justify-center
-    gap-24 bg-slate-50  bg-[url('../../../public/signBG.png')] bg-right-bottom bg-no-repeat  "
+      className="flex h-[60rem] flex-col items-center justify-center gap-5 bg-[url('../../../public/loginBG.png')] bg-left-top  bg-no-repeat
+    sm:gap-24 md:bg-[url('../../../public/signBG.png')]  md:bg-right-bottom md:flex-row  "
     >
       <Confirm>
-        <div className="flex w-fit flex-col gap-7 px-12 pt-14">
+        <div className="flex w-fit flex-col gap-7 px-7 pt-10">
           <Welcome type="Sign">
-            É um prazer <br /> lhe ter <br /> conosco!
+            É um prazer <br /> lhe ter   <br /> conosco!
           </Welcome>
           <Button text="Criar" login={true} />
           <TextEscape text="Voltar ao inicio" route="/" />
