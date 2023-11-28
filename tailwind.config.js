@@ -12,12 +12,12 @@ export default {
         violet: {
           1000: "#5F22D8",
         },
-        gray:{
+        gray: {
           1000: "#D9D9D9",
-          1100: "#F6F6F6"
-        }
+          1100: "#F6F6F6",
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

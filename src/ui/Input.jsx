@@ -17,5 +17,19 @@ export default function Input({ inputType, text }) {
         placeholder={text}
       />
     );
-  return <input type="text" className="w-fit bg-gray-1000 px-8 py-3" />;
+  if (inputType === "maWidth")
+    return (
+      <input
+        type="text"
+        className="w-fitrounded-lg bg-gray-1000  px-24  focus:outline-none  py-3  "
+        placeholder={text}
+      />
+    );
+  return (
+    <input
+      type="text"
+      placeholder={text}
+      className="w-fit bg-gray-1000 px-8 py-3"
+    />
+  );
 }
