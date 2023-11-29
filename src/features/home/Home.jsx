@@ -18,7 +18,7 @@ export default function Home() {
         <Card image={<HandShake />} name="Parceiros" route="/partners" />
       </section>
       <Trucks />
-      <Slide />
+      <Slide textElement={<p>Os mais rápidos e experientes do mercado</p>} />
       <Feature />
       <Form />
     </div>

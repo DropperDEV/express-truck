@@ -2,27 +2,28 @@ import Email from "./../../ui/Icons/Email";
 import Phone from "./../../ui/Icons/Phone";
 import Input from "./../../ui/Input";
 import Button from "./../../ui/Button";
+import Slide from "../../ui/Slide";
+import SideBySide from "./../../ui/SideBySide";
+import TextIntro from "./TextIntro";
+import Subtitle from "./Subtitle";
+import Contact from "./Contact";
 
 export default function Partners() {
   return (
-    <div className="relative mt-44">
-      <div className=" relative z-10 ml-[25%] w-3/4 overflow-visible py-4 lg:ml-[10%] lg:w-11/12">
-        <div className="absolute inset-0 -ml-8 bg-[#033B75] p-8">&nbsp;</div>
-      </div>
-      <div className="z-1 relative mb-32 bg-stone-950 p-14 text-slate-50">
-        <div className="border-l-2 border-slate-50 p-8">
+    <div className="relative mt-44 bg-slate-50">
+      <Slide
+        type="modern"
+        textElement={
           <h1 className="text-4xl font-semibold uppercase md:text-5xl lg:text-6xl">
             Seja parceiro
           </h1>
-        </div>
-      </div>
+        }
+      />
 
-      <section className="mb-32 flex items-center justify-around     ">
-        <div className="flex w-2/6 flex-col  justify-center gap-5">
-          <h2 className="text-left text-5xl font-semibold uppercase">
-            Faça parte <br /> dessa família
-          </h2>
-          <p className="text-xl">
+      <SideBySide>
+        <TextIntro>
+          <Subtitle text={`Faça parte  dessa família`} />
+          <p className="md:w-[440px] text-sm md:text-xl  w-[340px]">
             São empresas terceirizadas que trabalham conosco com coletas,
             entregas e manuseio da carga, visando suprir as necessidades
             operacionais, nas regiões em que a Express Truck não possui
@@ -31,43 +32,33 @@ export default function Partners() {
             básicos e visa garantir a qualidade dos serviços prestados aos
             clientes da Express Truck.
           </p>
-        </div>
-        <div className="flex flex-col  gap-24 ">
+        </TextIntro>
+
+        <div className="flex flex-col gap-10  md:gap-24 mr-24 ">
           <div className="flex flex-col gap-1">
-            <h2 className="text-left text-5xl font-semibold uppercase">
-              Fale conosco
-            </h2>
+            <Subtitle text={"Fale conosco"} />
             <p>Informações de contato</p>
           </div>
-          <div className="flex items-center justify-center gap-10 border-t-2 border-[#675b5b80] pt-3">
-            <div>
-              <p className="flex gap-2 text-xl font-semibold">
-                <span>
-                  <Phone />
-                </span>
-                Número
-              </p>
-              <p className="text-xl">55 (85) 8800-3322</p>
-            </div>
-            <div>
-              <p className="flex gap-2 text-xl font-semibold">
-                <span>
-                  <Email />
-                </span>
-                Email
-              </p>
-              <p className="text-xl">trabalheconosco@expresstruck.com</p>
-            </div>
+          <div className="flex md:items-center md:justify-center flex-col md:flex-row gap-10 border-t-2 border-[#675b5b80] pt-3">
+            <Contact
+              image={<Phone />}
+              text={"Número"}
+              content={"55 (85) 8800-3322"}
+            />
+            <Contact
+              image={<Email />}
+              text={"email"}
+              content={"trabalheconosco@expresstruck.com"}
+            />
           </div>
         </div>
-      </section>
-      <section className="flex flex-row justify-around gap-10 mb-24">
+      </SideBySide>
+
+      <section className="mb-24 flex flex-row justify-around gap-10">
         <form action="" className="flex flex-col items-center gap-10">
           <div className="mb-7 flex flex-col items-center justify-center gap-7">
-            <div className="border-b-2 border-[#675b5b80] pb-2 mb-10 ">
-              <h2 className="text-left text-5xl font-semibold uppercase ">
-                Preencha o campo abaixo
-              </h2>
+            <div className="mb-10 border-b-2 border-[#675b5b80] pb-2 ">
+              <Subtitle text={"Preencha o campo abaixo"} />
             </div>
             <div className="flex flex-col gap-5">
               <Input text="Nome  " inputType={"maWidth"} />
@@ -79,9 +70,7 @@ export default function Partners() {
           </div>
           <div className="flex w-max flex-col justify-center     gap-7">
             <div className="w-max border-b-2 border-[#675b5b80] pb-2">
-              <h2 className="mr-80 text-left text-5xl font-semibold uppercase">
-                Transporte
-              </h2>
+              <Subtitle text={" Transporte"} />
             </div>
             <div className="flex flex-col items-center justify-center gap-5">
               <Input text={"Quantidade de veículos"} inputType={"maWidth"} />
