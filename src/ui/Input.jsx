@@ -21,7 +21,7 @@ export default function Input({ inputType, text }) {
     return (
       <input
         type="text"
-        className="w-fitrounded-lg bg-gray-1000  px-24  focus:outline-none  py-3  "
+        className="w-fit rounded-lg bg-gray-1000  md:px-24 px-14  py-3  focus:outline-none  "
         placeholder={text}
       />
     );

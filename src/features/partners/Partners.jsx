@@ -7,10 +7,11 @@ import SideBySide from "./../../ui/SideBySide";
 import TextIntro from "./TextIntro";
 import Subtitle from "./Subtitle";
 import Contact from "./Contact";
+import Trucker from "./Trucker";
 
 export default function Partners() {
   return (
-    <div className="relative mt-44 bg-slate-50">
+    <div className="relative mt-44 bg-slate-50  ">
       <Slide
         type="modern"
         textElement={
@@ -23,7 +24,7 @@ export default function Partners() {
       <SideBySide>
         <TextIntro>
           <Subtitle text={`Faça parte  dessa família`} />
-          <p className="md:w-[440px] text-sm md:text-xl  w-[340px]">
+          <p className="w-[340px] text-sm md:w-[440px]  lg:ml-3 lg:text-lg xl:text-xl">
             São empresas terceirizadas que trabalham conosco com coletas,
             entregas e manuseio da carga, visando suprir as necessidades
             operacionais, nas regiões em que a Express Truck não possui
@@ -34,12 +35,12 @@ export default function Partners() {
           </p>
         </TextIntro>
 
-        <div className="flex flex-col gap-10  md:gap-24 mr-24 ">
+        <div className="mr-24 flex flex-col gap-10 sm:mr-40 md:ml-24 md:mr-0  md:gap-16 lg:ml-0   ">
           <div className="flex flex-col gap-1">
             <Subtitle text={"Fale conosco"} />
-            <p>Informações de contato</p>
+            <p className="ml-5">Informações de contato</p>
           </div>
-          <div className="flex md:items-center md:justify-center flex-col md:flex-row gap-10 border-t-2 border-[#675b5b80] pt-3">
+          <div className="flex flex-col gap-10 border-t-2 border-[#675b5b80] pt-3 md:flex-row md:items-center md:justify-center">
             <Contact
               image={<Phone />}
               text={"Número"}
@@ -54,8 +55,11 @@ export default function Partners() {
         </div>
       </SideBySide>
 
-      <section className="mb-24 flex flex-row justify-around gap-10">
-        <form action="" className="flex flex-col items-center gap-10">
+      <section className="mb-24 flex flex-row items-center justify-center  gap-10 lg:items-start lg:justify-around">
+        <form
+          action=""
+          className="flex flex-col items-center justify-center gap-10"
+        >
           <div className="mb-7 flex flex-col items-center justify-center gap-7">
             <div className="mb-10 border-b-2 border-[#675b5b80] pb-2 ">
               <Subtitle text={"Preencha o campo abaixo"} />
@@ -82,9 +86,7 @@ export default function Partners() {
           </div>
           <Button text="Enviar" maxWidth={true} />
         </form>
-        <div>
-          <img src="partner.png" alt="Parceiro de nosso trabalho." />
-        </div>
+        <Trucker />
       </section>
     </div>
   );
