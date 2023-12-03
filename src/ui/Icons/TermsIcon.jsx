@@ -7,6 +7,7 @@ export default function TermsIcon() {
       viewBox="0 0 70 70"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className=" w-12 h-12 sm:w-[50px] sm:h-[50px]"
     >
       <g id="basil:document-outline">
         <path

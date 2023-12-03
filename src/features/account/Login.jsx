@@ -17,7 +17,7 @@ export default function Login() {
           <Welcome>
             Bem <br className="mb-4" /> Vindo!
           </Welcome>
-          <Button text="Entrar" login={true} />
+          <Button text="Entrar" login={true} route='/account/myaccount' />
           <TextEscape text="Voltar ao inicio" route="/" />
         </div>
       </Confirm>
