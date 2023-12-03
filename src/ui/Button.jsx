@@ -7,7 +7,7 @@ export default function Button({ text, login, maxWidth, route }) {
     return (
       <Link
         to={route}
-        className="rounded-2xl bg-slate-50 px-1 py-2 text-2xl text-stone-950   lg:px-10 lg:py-4"
+        className="rounded-2xl bg-slate-50 px-1 py-2 text-2xl text-stone-950 text-center   lg:px-10 lg:py-4"
       >
         {text}
       </Link>

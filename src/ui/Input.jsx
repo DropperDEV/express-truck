@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-export default function Input({ inputType, text }) {
+export default function Input({ inputType, text, value, action }) {
   if (inputType === "big")
     return (
       <textarea
@@ -15,6 +15,8 @@ export default function Input({ inputType, text }) {
         type="text"
         className="w-fit rounded-lg bg-slate-50 px-2  py-2 text-sm focus:outline-none sm:px-6 sm:py-3 sm:text-lg lg:px-14    lg:py-8 lg:text-2xl"
         placeholder={text}
+        value={value}
+        onChange={action}
       />
     );
   if (inputType === "maWidth")

@@ -4,10 +4,10 @@ import TermsIcon from "../../ui/Icons/TermsIcon";
 import Home from "../../ui/Icons/Home";
 import Container from "./Container";
 import Subtitle from "./../partners/Subtitle";
-import PersonalInfo from "./PersonalInfo";
-import { Link } from "react-router-dom";
 import RoadIcon from "../../ui/Icons/RoadIcon";
 import Cart from "./../../ui/Icons/Cart";
+import TitleShadow from "./../../ui/TitleShadow";
+import UserData from "./UserData";
 
 export default function Account() {
   return (
@@ -33,33 +33,24 @@ export default function Account() {
         <Container />
       </div>
       <div>
-        <div className="my-10 w-full border-b-2 border-[#675b5b80] pb-2 text-center ">
+        <TitleShadow>
           <Subtitle text="MEUS DADOS" />
-        </div>
-        <div className="flex flex-col items-center justify-center gap-4 rounded-xl bg-gray-1100 px-7 py-3">
-          <div className=" flex flex-col gap-3 sm:grid  sm:grid-cols-2">
-            <PersonalInfo infoName="CPF" info="XXX XXX XXX XX" />
-            <PersonalInfo
-              infoName="ENDEREÇO"
-              info="Rua XX Cidade XX Estado XX"
-            />
-            <PersonalInfo infoName="EMAIL" info="XXXX@gmail.com" />
-            <PersonalInfo infoName="TELEFONE" info="+55 (XX) X XXXX-XXXX" />
-          </div>
-          <Link className="text-sm ">Mudar dados</Link>
-        </div>
-        <div className="my-10 w-full border-b-2 border-[#675b5b80] pb-2 text-center ">
+        </TitleShadow>
+        <UserData />
+        <TitleShadow>
           <Subtitle text="MINHAS ROTAS" />
-        </div>
+        </TitleShadow>
+
         <div className="mb-14 flex flex-col items-center justify-center gap-4 rounded-xl bg-gray-1100 px-10 py-32 md:px-44">
           <div className="flex items-center justify-center gap-5">
             <RoadIcon />
             <p className=" w-52">Sem rotas a caminho</p>
           </div>
         </div>
-        <div className="my-10 w-full border-b-2 border-[#675b5b80] pb-2 text-center ">
+        <TitleShadow>
           <Subtitle text="MEUS PEDIDOS" />
-        </div>
+        </TitleShadow>
+
         <div className="flex flex-col items-center justify-center gap-4 rounded-xl bg-gray-1100 px-10 py-32  md:px-44">
           <div className="flex items-center justify-center gap-5">
             <Cart />
