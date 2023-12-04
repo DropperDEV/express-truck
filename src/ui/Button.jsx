@@ -9,7 +9,7 @@ export default function Button({ text, login, maxWidth, route, action }) {
         to={route}
         className="rounded-2xl bg-slate-50 px-1 py-2 text-center text-2xl text-stone-950   lg:px-10 lg:py-4"
       >
-        <button onClick={action}>{text}</button>
+        <button onClick={action} type="submit">{text}</button>
       </Link>
     );
   if (maxWidth === true)

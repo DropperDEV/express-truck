@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Button from "./../../ui/Button";
 import Input from "./../../ui/Input";
 import Welcome from "./Welcome";
@@ -9,23 +10,58 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updatedCPF, updatedEmail, updatedPassword } from "./userSlice";
 import { useNavigate } from "react-router-dom";
+import supabase from "../../supabase"; // Importe a instância do Supabase
 
 export default function SignUp() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [cpf, setCPF] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [cpf, setCPF] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     if (!email || !password || !cpf) return;
-    dispatch(updatedEmail(email));
-    dispatch(updatedPassword(password));
-    dispatch(updatedCPF(cpf));
-    navigate("/account/myaccount");
+
+    try {
+      const { user, error } = await supabase.auth.signUp({
+        email,
+        password,
+      });
+
+      if (error) {
+        console.error("Erro ao criar usuário:", error.message);
+      } else {
+        const { data, error } = await supabase.from("users").upsert(
+          [
+            {
+              id: user.id,
+              email,
+              cpf,
+            },
+          ],
+          { onConflict: ["id"] },
+        );
+
+        if (error) {
+          console.error(
+            "Erro ao adicionar informações do usuário:",
+            error.message,
+          );
+        } else {
+          dispatch(updatedEmail(email));
+          dispatch(updatedPassword(password));
+          dispatch(updatedCPF(cpf));
+
+          navigate("/account/myaccount");
+        }
+      }
+    } catch (error) {
+      console.error("Erro geral:", error.message);
+    }
   }
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -38,7 +74,7 @@ export default function SignUp() {
           <Welcome type="Sign">
             É um prazer <br /> lhe ter <br /> conosco!
           </Welcome>
-          <Button text="Criar" login={true} action={handleSubmit}/>
+          <Button text="Criar" login={true} action={handleSubmit} />
           <TextEscape text="Voltar ao inicio" route="/" />
         </div>
       </Confirm>
