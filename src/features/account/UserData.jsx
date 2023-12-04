@@ -6,7 +6,8 @@ import {
   updatedEmail,
   updatedPhone,
 } from "./userSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getUsers } from "../../services/apiUsers";
 export default function UserData() {
   const [change, setChange] = useState(true);
   const email = useSelector((state) => state.user.email);
@@ -14,6 +15,10 @@ export default function UserData() {
   const address = useSelector((state) => state.user.address);
   const phone = useSelector((state) => state.user.phone);
 
+
+  useEffect(function(){
+    getUsers().then(data => console.log(data))
+  },[])
   const dispatch = useDispatch();
 
   function handleClick() {

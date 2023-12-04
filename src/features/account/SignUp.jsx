@@ -10,7 +10,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updatedCPF, updatedEmail, updatedPassword } from "./userSlice";
 import { useNavigate } from "react-router-dom";
-import supabase from "../../supabase"; // Importe a instância do Supabase
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -22,45 +21,14 @@ export default function SignUp() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    if (!email || !password || !cpf) return;
-
-    try {
-      const { user, error } = await supabase.auth.signUp({
-        email,
-        password,
-      });
-
-      if (error) {
-        console.error("Erro ao criar usuário:", error.message);
-      } else {
-        const { data, error } = await supabase.from("users").upsert(
-          [
-            {
-              id: user.id,
-              email,
-              cpf,
-            },
-          ],
-          { onConflict: ["id"] },
-        );
-
-        if (error) {
-          console.error(
-            "Erro ao adicionar informações do usuário:",
-            error.message,
-          );
-        } else {
-          dispatch(updatedEmail(email));
-          dispatch(updatedPassword(password));
-          dispatch(updatedCPF(cpf));
-
-          navigate("/account/myaccount");
-        }
-      }
-    } catch (error) {
-      console.error("Erro geral:", error.message);
-    }
+    if (!email || !password || !cpf) return alert("Insira todos os campos");
+    dispatch(updatedEmail(email));
+    dispatch(updatedPassword(password));
+    dispatch(updatedCPF(cpf));
+    navigate("/account/myaccount");
   }
+
+
 
   return (
     <form
@@ -108,4 +76,5 @@ export default function SignUp() {
       </div>
     </form>
   );
+
 }
