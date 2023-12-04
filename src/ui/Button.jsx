@@ -2,14 +2,14 @@
 
 import { Link } from "react-router-dom";
 
-export default function Button({ text, login, maxWidth, route }) {
+export default function Button({ text, login, maxWidth, route, action }) {
   if (login === true)
     return (
       <Link
         to={route}
-        className="rounded-2xl bg-slate-50 px-1 py-2 text-2xl text-stone-950 text-center   lg:px-10 lg:py-4"
+        className="rounded-2xl bg-slate-50 px-1 py-2 text-center text-2xl text-stone-950   lg:px-10 lg:py-4"
       >
-        {text}
+        <button onClick={action}>{text}</button>
       </Link>
     );
   if (maxWidth === true)

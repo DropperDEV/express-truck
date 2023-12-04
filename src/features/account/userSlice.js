@@ -4,22 +4,22 @@ const initialState = {
   email: "",
   password: "",
   cpf: "",
-  adress: "",
+  address: "", // Corrected the typo in the property name
   phone: "",
 };
 
 const userSlice = createSlice({
   name: "user",
   initialState,
-  reducer: {
+  reducers: { // Corrected from "reducer" to "reducers"
     updatedEmail(state, action) {
       state.email = action.payload;
     },
     updatedPhone(state, action) {
       state.phone = action.payload;
     },
-    updatedAdress(state, action) {
-      state.adress = action.payload;
+    updatedAddress(state, action) { // Corrected the typo in the function name
+      state.address = action.payload;
     },
     updatedCPF(state, action) {
       state.cpf = action.payload;
@@ -33,7 +33,7 @@ const userSlice = createSlice({
 export const {
   updatedEmail,
   updatedPhone,
-  updatedAdress,
+  updatedAddress,
   updatedCPF,
   updatedPassword,
 } = userSlice.actions;

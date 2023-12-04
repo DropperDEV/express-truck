@@ -4,7 +4,7 @@ import Welcome from "./Welcome";
 import TextEscape from "./TextEscape";
 import Title from "./Title";
 import Confirm from "./Confirm";
-import FormLogin from "./FormLogin";
+import InputArea from "./InputArea";
 
 export default function Login() {
   return (
@@ -24,7 +24,7 @@ export default function Login() {
 
       <div className="flex flex-col gap-4 sm:gap-6 ">
         <Title title="Login" />{" "}
-        <FormLogin>
+        <InputArea>
           <div className="flex flex-col items-center justify-center gap-5 ">
             <Input inputType="Login/Register" text={"Email"} />
             <Input inputType="Login/Register" text={"Senha"} />
@@ -35,7 +35,7 @@ export default function Login() {
             text="Não possui conta? Cadastre aqui."
             route="/account/signup"
           />
-        </FormLogin>
+        </InputArea>
       </div>
     </div>
   );
