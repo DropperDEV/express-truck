@@ -1,16 +1,11 @@
 /* eslint-disable react/prop-types */
 
-import { Link } from "react-router-dom";
 
-export default function Button({ text, login, maxWidth, route, action }) {
+export default function Button({ text, login, maxWidth }) {
   if (login === true)
     return (
-      <Link
-        to={route}
-        className="rounded-2xl bg-slate-50 px-1 py-2 text-center text-2xl text-stone-950   lg:px-10 lg:py-4"
-      >
-        <button onClick={action} type="submit">{text}</button>
-      </Link>
+      
+        <button  type="submit">{text}</button>
     );
   if (maxWidth === true)
     return (
