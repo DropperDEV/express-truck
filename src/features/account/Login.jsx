@@ -5,11 +5,9 @@ import TextEscape from "./TextEscape";
 import Title from "./Title";
 import Confirm from "./Confirm";
 import InputArea from "./InputArea";
-//import { updatedCPF, updatedEmail } from "./userSlice";
 //import { useNavigate } from "react-router-dom";
 //import { useDispatch } from "react-redux";
 import { useState } from "react";
-import  supabase  from '../../supabase'
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -18,29 +16,10 @@ export default function Login() {
  // const dispatch = useDispatch();
  // const navigate = useNavigate();
 
-  // const handleLogin = async (e) => {
-  //   e.preventDefault();
-  //   if (!cpf || !email || !password) return alert("Insira todos os campos");
-  //   dispatch(updatedEmail(email));
-  //   dispatch(updatedCPF(cpf));
-  //   navigate("/account/myaccount");
-  // };
 
-  const handleLogin = async (event) => {
-    event.preventDefault()
-
-    const { error } = await supabase.auth.signInWithOtp({ email })
-
-    if (error) {
-      alert(error.error_description || error.message)
-    } else {
-      alert('Check your email for the login link!')
-    }
-  }
 
   return (
     <form
-      onSubmit={handleLogin}
       action=""
       className=" flex h-[60rem] flex-col items-center justify-center gap-5  bg-[url('../../../public/loginBG.png')]
     bg-left-top bg-no-repeat  sm:gap-24 md:flex-row  "
@@ -50,7 +29,7 @@ export default function Login() {
           <Welcome>
             Bem <br className="mb-4" /> Vindo!
           </Welcome>
-          <Button text="Entrar" login={true} route="/account/myaccount"  action={handleLogin}/>
+          <Button text="Entrar" login={true} route="/account/myaccount"  />
           <TextEscape text="Voltar ao inicio" route="/" />
         </div>
       </Confirm>

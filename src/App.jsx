@@ -8,7 +8,16 @@ import About from "./features/about/About";
 import Partners from "./features/partners/Partners";
 import Login from "./features/account/Login";
 import SignUp from "./features/account/SignUp";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 0,
+    },
+  },
+});
 export default function App() {
   const router = createBrowserRouter([
     {
@@ -40,5 +49,10 @@ export default function App() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false}/>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 }

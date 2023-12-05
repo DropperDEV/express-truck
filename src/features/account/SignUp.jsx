@@ -7,32 +7,20 @@ import Title from "./Title";
 import Confirm from "./Confirm";
 import InputArea from "./InputArea";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { updatedCPF, updatedEmail, updatedPassword } from "./userSlice";
 import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cpf, setCPF] = useState("");
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  async function handleSubmit(e) {
-    e.preventDefault();
 
-    if (!email || !password || !cpf) return alert("Insira todos os campos");
-    dispatch(updatedEmail(email));
-    dispatch(updatedPassword(password));
-    dispatch(updatedCPF(cpf));
-    navigate("/account/myaccount");
-  }
 
 
 
   return (
     <form
-      onSubmit={handleSubmit}
       action=""
       className="flex h-[60rem] flex-col items-center justify-center gap-5 bg-[url('../../../public/loginBG.png')] bg-left-top  bg-no-repeat
     sm:gap-24 md:flex-row  md:bg-[url('../../../public/signBG.png')] md:bg-right-bottom  "
@@ -42,7 +30,7 @@ export default function SignUp() {
           <Welcome type="Sign">
             É um prazer <br /> lhe ter <br /> conosco!
           </Welcome>
-          <Button text="Criar" login={true} action={handleSubmit} />
+          <Button text="Criar" login={true}  />
           <TextEscape text="Voltar ao inicio" route="/" />
         </div>
       </Confirm>
