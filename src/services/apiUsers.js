@@ -15,3 +15,5 @@ export async function getUsers() {
     throw new Error("An unexpected error occurred while fetching user data");
   }
 }
+
+

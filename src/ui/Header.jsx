@@ -13,14 +13,7 @@ export default function Header() {
         </h1>
       </Link>
 
-      <div>
-        {" "}
-        <input
-          placeholder="Search..."
-          className=" w-32 rounded-full px-3 py-3 text-sm  transition-all duration-700  focus:outline-none focus:ring-4
-          focus:ring-blue-400 focus:ring-opacity-50 sm:w-44 sm:px-5  sm:py-4 sm:text-base sm:focus:w-72 lg:w-60 lg:focus:w-80 2xl:w-80 2xl:focus:w-96"
-        />
-      </div>
+ 
 
       <LoginIcon />
     </header>
