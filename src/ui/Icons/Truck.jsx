@@ -2,8 +2,8 @@
 
 export default function Truck({main}){
   if(main === true) return (<svg
-    width="70"
-    height="70"
+    width="60"
+    height="60"
     viewBox="0 0 80 80"
     fill="white"
     xmlns="http://www.w3.org/2000/svg"
@@ -19,8 +19,8 @@ export default function Truck({main}){
   
     return (
         <svg
-                width="80"
-                height="80"
+                width="65 "
+                height="65  "
                 viewBox="0 0 80 80"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"

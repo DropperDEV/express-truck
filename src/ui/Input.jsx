@@ -31,7 +31,7 @@ export default function Input({ inputType, text, name, action, type }) {
     <input
       type="text"
       placeholder={text}
-      className="w-fit bg-gray-1000 px-8 py-3"
+      className="w-fit bg-gray-1000 sm:px-8 sm:py-2"
     />
   );
 }
