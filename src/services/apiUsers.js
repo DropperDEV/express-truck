@@ -1,5 +1,17 @@
 import supabase from "../supabase";
 
+export async function createUser(user) {
+  try {
+    await supabase
+      .from("users")
+      .insert({ email: user.email, password: user.password, cpf: user.cpf });
+    await getUsers();
+  } catch (error) {
+    console.error(error);
+    throw new Error("An unexpected error occurred while creating the user");
+  }
+}
+
 export async function getUsers() {
   try {
     const { data, error } = await supabase.from("users").select("*");
@@ -16,14 +28,41 @@ export async function getUsers() {
   }
 }
 
-export async function createUser(user) {
+export async function updateUser(userEdit, id) {
   try {
     await supabase
       .from("users")
-      .insert({ email: user.email, password: user.password, cpf: user.cpf });
-    await getUsers(); // Optional: You may want to await getUsers() if needed.
+      .update({
+        email: userEdit.email,
+        address: userEdit.address,
+        cpf: userEdit.cpf,
+        phone: userEdit.phone,
+      })
+      .eq("id", id);
+
+    await getUsers();
   } catch (error) {
     console.error(error);
-    throw new Error("An unexpected error occurred while creating the user");
+    throw new Error("An unexpected error occurred while updating user data");
+  }
+}
+
+export async function loginUser(user) {
+  event.preventDefault();
+
+  try {
+    const { error } = await supabase.auth.signUp({
+      email: user.email,
+      cpf: user.cpf,
+      password: user.password,
+    });
+    console.log(user);
+    if (error) {
+      console.error("Erro ao fazer login:", error.message);
+    } else {
+      console.log("Usuário autenticado com sucesso:", user);
+    }
+  } catch (error) {
+    console.error("Erro inesperado:", error.message);
   }
 }

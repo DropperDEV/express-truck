@@ -5,22 +5,46 @@ import TextEscape from "./TextEscape";
 import Title from "./Title";
 import Confirm from "./Confirm";
 import InputArea from "./InputArea";
-//import { useNavigate } from "react-router-dom";
-//import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { loginUser } from "../../services/apiUsers";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [cpf, setCPF] = useState("");
- // const dispatch = useDispatch();
- // const navigate = useNavigate();
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+    cpf: "",
+  });
+  const navigate = useNavigate()
 
+  function handleChange(event) {
+    setUser((prevFormData) => {
+      return {
+        ...prevFormData,
+        [event.target.name]: event.target.value,
+      };
+    });
+  }
+  console.log(user)
 
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    try {
+      await loginUser(user);
+      navigate('/account/myaccount')
+      
+    } catch (error) {
+      console.error(error);
+      throw new Error('Some error')
+    }
+  }
+
+  
 
   return (
     <form
-      action=""
+      onSubmit={handleSubmit}
       className=" flex h-[60rem] flex-col items-center justify-center gap-5  bg-[url('../../../public/loginBG.png')]
     bg-left-top bg-no-repeat  sm:gap-24 md:flex-row  "
     >
@@ -29,7 +53,7 @@ export default function Login() {
           <Welcome>
             Bem <br className="mb-4" /> Vindo!
           </Welcome>
-          <Button text="Entrar" login={true} route="/account/myaccount"  />
+          <Button text="Entrar" login={true} route="/account/myaccount" />
           <TextEscape text="Voltar ao inicio" route="/" />
         </div>
       </Confirm>
@@ -40,27 +64,24 @@ export default function Login() {
           <div className="flex flex-col items-center justify-center gap-5 ">
             <Input
               inputType="Login/Register"
-              
               text="Email"
-              value={email}
-              action={(e) => setEmail(e.target.value)}
-              type='email'
+              name={"email"}
+              action={handleChange}
+              type="email"
             />
             <Input
               inputType="Login/Register"
               text="Senha"
               type="password"
-              value={password}
-              action={(e) => setPassword(e.target.value)}
-              
+              name={"password"}
+              action={handleChange}
             />
             <Input
               inputType="Login/Register"
               type="text"
-
               text="CPF"
-              value={cpf}
-              action={(e) => setCPF(e.target.value)}
+              name={"cpf"}
+              action={handleChange}
             />
           </div>
 

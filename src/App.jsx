@@ -18,6 +18,7 @@ const queryClient = new QueryClient({
     },
   },
 });
+
 export default function App() {
   const router = createBrowserRouter([
     {

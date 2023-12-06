@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 
 
-export default function Button({ text, login, maxWidth }) {
+export default function Button({ text, login, maxWidth, action }) {
   if (login === true)
     return (
       
-        <button  type="submit">{text}</button>
+        <button  type="submit" onClick={action}>{text}</button>
     );
   if (maxWidth === true)
     return (
