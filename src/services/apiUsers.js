@@ -2,10 +2,21 @@ import supabase from "../supabase";
 
 export async function createUser(user) {
   try {
-    await supabase
-      .from("users")
-      .insert({ email: user.email, password: user.password, cpf: user.cpf });
-    await getUsers();
+    const { data, error } = await supabase.auth.signUp({
+      email: user.email,
+      password: user.password,
+      options: {
+        data: {
+          cpf: user.cpf,
+        },
+      },
+    });
+    if (error) {
+      console.error("Error creating user");
+    }
+    if (data) {
+      console.log(data);
+    }
   } catch (error) {
     console.error(error);
     throw new Error("An unexpected error occurred while creating the user");
@@ -46,7 +57,6 @@ export async function updateUser(userEdit, id) {
     throw new Error("An unexpected error occurred while updating user data");
   }
 }
-
 
 export async function loginUser(user, navigate) {
   try {

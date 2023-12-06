@@ -16,7 +16,7 @@ export default function SignUp() {
     password: "",
     cpf: "",
   });
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   function handleChange(event) {
     setUser((prevFormData) => {
@@ -26,21 +26,19 @@ export default function SignUp() {
       };
     });
   }
-  console.log(user)
+  console.log(user);
 
   async function handleSubmit(event) {
     event.preventDefault();
 
     try {
       await createUser(user);
-      navigate('/account/myaccount')
-      
+      navigate("/account/myaccount");
     } catch (error) {
       console.error(error);
-      throw new Error('Some error')
+      throw new Error("Some error");
     }
   }
-
 
   return (
     <form
@@ -66,19 +64,23 @@ export default function SignUp() {
               inputType="Login/Register"
               text={"Email"}
               name={"email"}
+              type={"email"}
               action={handleChange}
             />
             <Input
               inputType="Login/Register"
               text={"Senha"}
               name={"password"}
+              type={"password"}
               action={handleChange}
             />
             <Input
               inputType="Login/Register"
-              text={"CPF"}
+              text={"Digite um CPF no formato: xxx.xxx.xxx-xx"}
               name={"cpf"}
               action={handleChange}
+              type={"text"}
+              pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
             />
           </div>
 
