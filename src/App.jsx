@@ -27,13 +27,12 @@ export default function App() {
         {
           path: "/terms",
           element: <Terms />,
-        
+
           loader: termsLoader,
         },
         {
           path: "/account/myaccount",
           element: <Account />,
-        
         },
 
         { path: "/about", element: <About /> },
@@ -44,13 +43,12 @@ export default function App() {
     {
       path: "/account/signup",
       element: <SignUp />,
-    
     },
   ]);
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools initialIsOpen={false}/>
+      <ReactQueryDevtools initialIsOpen={false} />
       <RouterProvider router={router} />
     </QueryClientProvider>
   );

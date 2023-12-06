@@ -47,20 +47,19 @@ export async function updateUser(userEdit, id) {
   }
 }
 
-export async function loginUser(user) {
-  event.preventDefault();
 
+export async function loginUser(user, navigate) {
   try {
-    const { error } = await supabase.auth.signUp({
+    const { user: authUser, error } = await supabase.auth.signUp({
       email: user.email,
-      cpf: user.cpf,
       password: user.password,
     });
-    console.log(user);
+
     if (error) {
       console.error("Erro ao fazer login:", error.message);
     } else {
-      console.log("Usuário autenticado com sucesso:", user);
+      console.log("Usuário autenticado com sucesso:", authUser);
+      navigate("/account/myaccount");
     }
   } catch (error) {
     console.error("Erro inesperado:", error.message);

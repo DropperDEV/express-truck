@@ -5,17 +5,17 @@ import TextEscape from "./TextEscape";
 import Title from "./Title";
 import Confirm from "./Confirm";
 import InputArea from "./InputArea";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { loginUser } from "../../services/apiUsers";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [user, setUser] = useState({
     email: "",
     password: "",
-    cpf: "",
   });
   const navigate = useNavigate()
+
 
   function handleChange(event) {
     setUser((prevFormData) => {
@@ -25,22 +25,18 @@ export default function Login() {
       };
     });
   }
-  console.log(user)
+  console.log(user);
 
   async function handleSubmit(event) {
     event.preventDefault();
 
     try {
-      await loginUser(user);
-      navigate('/account/myaccount')
-      
+      await loginUser(user,navigate);
     } catch (error) {
       console.error(error);
-      throw new Error('Some error')
+      throw new Error("Some error");
     }
   }
-
-  
 
   return (
     <form
@@ -76,13 +72,7 @@ export default function Login() {
               name={"password"}
               action={handleChange}
             />
-            <Input
-              inputType="Login/Register"
-              type="text"
-              text="CPF"
-              name={"cpf"}
-              action={handleChange}
-            />
+            
           </div>
 
           <TextEscape

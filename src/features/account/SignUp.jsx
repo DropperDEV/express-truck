@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import Button from "./../../ui/Button";
 import Input from "./../../ui/Input";
 import Welcome from "./Welcome";
@@ -8,7 +7,7 @@ import Confirm from "./Confirm";
 import InputArea from "./InputArea";
 import { useState } from "react";
 
-import { createUser, getUsers } from "../../services/apiUsers";
+import { createUser } from "../../services/apiUsers";
 import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {

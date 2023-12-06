@@ -6,6 +6,7 @@ import Footer from "./Footer";
 export default function AppLayout() {
   const navigation = useNavigation();
   const isLoading = navigation.state === "loading";
+  console.log(isLoading)
   return (
     <div>
       {isLoading && <Loader />}
