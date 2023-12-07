@@ -33,12 +33,14 @@ export default function SignUp() {
 
     try {
       await createUser(user);
-      navigate("/account/myaccount");
+      navigate("/account/login");
     } catch (error) {
       console.error(error);
       throw new Error("Some error");
     }
   }
+
+  
 
   return (
     <form
@@ -75,12 +77,11 @@ export default function SignUp() {
               action={handleChange}
             />
             <Input
-              inputType="Login/Register"
+              inputType="CPF"
               text={"Digite um CPF no formato: xxx.xxx.xxx-xx"}
               name={"cpf"}
               action={handleChange}
-              type={"text"}
-              pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+              type={"number"}
             />
           </div>
 

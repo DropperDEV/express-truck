@@ -6,37 +6,30 @@ import Title from "./Title";
 import Confirm from "./Confirm";
 import InputArea from "./InputArea";
 import { useState } from "react";
-import { loginUser } from "../../services/apiUsers";
-import { useNavigate } from "react-router-dom";
+import { useLogin } from './useLogin';
 
 export default function Login() {
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
-  const navigate = useNavigate()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const {login} = useLogin()
 
 
-  function handleChange(event) {
-    setUser((prevFormData) => {
-      return {
-        ...prevFormData,
-        [event.target.name]: event.target.value,
-      };
-    });
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(email, password)
+    if (!email || !password) return;
+    login(
+      { email, password },
+      {
+        onSettled: () => {
+          setEmail("");
+          setPassword("");
+        },
+      }
+    );
   }
-  console.log(user);
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-
-    try {
-      await loginUser(user,navigate);
-    } catch (error) {
-      console.error(error);
-      throw new Error("Some error");
-    }
-  }
 
   return (
     <form
@@ -49,7 +42,7 @@ export default function Login() {
           <Welcome>
             Bem <br className="mb-4" /> Vindo!
           </Welcome>
-          <Button text="Entrar" login={true} route="/account/myaccount" />
+          <Button text="Entrar" login={true} />
           <TextEscape text="Voltar ao inicio" route="/" />
         </div>
       </Confirm>
@@ -62,15 +55,17 @@ export default function Login() {
               inputType="Login/Register"
               text="Email"
               name={"email"}
-              action={handleChange}
+              action={(e) => setEmail(e.target.value)}
               type="email"
+              value={email}
             />
             <Input
               inputType="Login/Register"
               text="Senha"
               type="password"
               name={"password"}
-              action={handleChange}
+              action={(e) => setPassword(e.target.value)}
+              value={password}
             />
             
           </div>

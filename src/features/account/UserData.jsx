@@ -1,17 +1,23 @@
 import PersonalInfo from "./PersonalInfo";
 import { useState } from "react";
-import { useUsers } from "./useUsers";
-import Button from "./../../ui/Button";
+import useUsers from "./useUsers";
+import Button from "../../ui/Button";
+import {useUpdateUser} from "./useUpdateUsers";
 
 export default function UserData() {
-  // const [userEdit, setUserEdit] = useState({
-  //   email: "",
-  //   cpf: "",
-  //   address: "",
-  //   phone: "",
-  // });
   const [onlyRead, setOnlyRead] = useState(true);
-  const [isLoading, users, error] = useUsers();
+  const { isLoading, user, error } = useUsers();
+
+  const currentEmail = user?.email || "";
+  const currentCpf = user?.user_metadata?.cpf || "";
+  const currentPhone = user?.user_metadata?.phone || "";
+  const currentAddress = user?.user_metadata?.address || "";
+  const { updateUser } = useUpdateUser();
+  const [newEmail, setNewEmail] = useState(currentEmail);
+  const [newCpf, setNewCpf] = useState(currentCpf);
+  const [newPhone, setNewPhone] = useState(currentPhone);
+  const [newAddress, setNewAddress] = useState(currentAddress);
+
   if (isLoading) {
     return <div className="text-center">Loading...</div>;
   }
@@ -20,53 +26,52 @@ export default function UserData() {
     return <div>Error loading user data</div>;
   }
 
-  const [user] = users;
-  const { cpf, address, email, phone } = user;
-
-  function handleChange() {
-    // setUserEdit((prevFormData) => {
-    //   return {
-    //     ...prevFormData,
-    //     [event.target.name]: event.target.value,
-    //   };
-    // });
+  function handleSubmit(e) {
+    e.preventDefault();
+    updateUser({
+      email: newEmail,
+      address: newAddress,
+      cpf: newCpf,
+      phone: newPhone,
+    });
   }
-
-
 
   return (
     <div className="flex flex-col items-center justify-center gap-4 rounded-xl bg-gray-1100 px-7 py-3">
-      <form className=" flex flex-col gap-3 sm:grid  sm:grid-cols-2">
+      <form
+        onSubmit={handleSubmit}
+        className=" flex flex-col gap-3 sm:grid  sm:grid-cols-2"
+      >
         <PersonalInfo
           infoName="CPF"
-          info={cpf
+          info={newCpf
             .toString()
             .replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4")}
           name={"cpf"}
-          action={handleChange}
+          action={(e) => setNewCpf(e.target.value)}
           edit={onlyRead}
         />
         <PersonalInfo
           infoName="ENDEREÇO"
-          info={address}
+          info={newAddress}
           name={"address"}
-          action={handleChange}
+          action={(e) => setNewAddress(e.target.value)}
           edit={onlyRead}
         />
         <PersonalInfo
           infoName="EMAIL"
-          info={email}
+          info={newEmail}
           name={"email"}
-          action={handleChange}
+          action={(e) => setNewEmail(e.target.value)}
           edit={onlyRead}
         />
         <PersonalInfo
           infoName="TELEFONE"
-          info={phone
+          info={newPhone
             .toString()
             .replace(/(\d{2})(\d{1})(\d{4})(\d{4})/, "($1) $2 $3-$4")}
           name={"phone"}
-          action={handleChange}
+          action={(e) => setNewPhone(e.target.value)}
           edit={onlyRead}
         />
 
