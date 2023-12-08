@@ -41,57 +41,58 @@ export default function UserData() {
     <div className="flex flex-col items-center justify-center gap-4 rounded-xl bg-gray-1100 px-7 py-3">
       <form
         onSubmit={handleSubmit}
-        className=" flex flex-col gap-3 sm:grid  sm:grid-cols-2"
+        className=" flex flex-col gap-4"
       >
-        <PersonalInfo>
-          {" "}
-          <p className="uppercase">CPF</p>
-          <Input
-            value={newCpf}
-            action={(e) => setNewCpf(e.target.value)}
-            type={"cpf"}
-            name={"cpf"}
-            onlyRead={onlyRead}
-            mask={"000.000.000-00"}
-          />
-        </PersonalInfo>
-        <PersonalInfo>
-          {" "}
-          <p className="uppercase">ENDEREÇO</p>
-          <Input
-            value={newAddress}
-            action={(e) => setNewAddress(e.target.value)}
-            type={"address"}
-            name={"address"}
-            onlyRead={onlyRead}
-          />
-        </PersonalInfo>
-        <PersonalInfo>
-          {" "}
-          <p className="uppercase">EMAIL</p>
-          <Input
-            value={newEmail}
-            action={(e) => setNewEmail(e.target.value)}
-            type={"email"}
-            name={"email"}
-            onlyRead={onlyRead}
-          />
-        </PersonalInfo>
-        <PersonalInfo>
-          {" "}
-          <p className="uppercase">TELEFONE</p>
-          <Input
-            value={newPhone}
-            action={(e) => setNewPhone(e.target.value)}
-            type={"phone"}
-            name={"phone"}
-            onlyRead={onlyRead}
-            mask={"(00) 90000-0000"}
-          />
-        </PersonalInfo>
-
+        <div className="flex flex-col gap-3 sm:grid  sm:grid-cols-2">
+          <PersonalInfo>
+            {" "}
+            <p className="uppercase">CPF</p>
+            <Input
+              value={newCpf}
+              action={(e) => setNewCpf(e.target.value)}
+              type={"cpf"}
+              name={"cpf"}
+              onlyRead={onlyRead}
+              mask={"000.000.000-00"}
+            />
+          </PersonalInfo>
+          <PersonalInfo>
+            {" "}
+            <p className="uppercase">ENDEREÇO</p>
+            <Input
+              value={newAddress}
+              action={(e) => setNewAddress(e.target.value)}
+              type={"address"}
+              name={"address"}
+              onlyRead={onlyRead}
+            />
+          </PersonalInfo>
+          <PersonalInfo>
+            {" "}
+            <p className="uppercase">EMAIL</p>
+            <Input
+              value={newEmail}
+              action={(e) => setNewEmail(e.target.value)}
+              type={"email"}
+              name={"email"}
+              onlyRead={onlyRead}
+            />
+          </PersonalInfo>
+          <PersonalInfo>
+            {" "}
+            <p className="uppercase">TELEFONE</p>
+            <Input
+              value={newPhone}
+              action={(e) => setNewPhone(e.target.value)}
+              type={"phone"}
+              name={"phone"}
+              onlyRead={onlyRead}
+              mask={"(00) 90000-0000"}
+            />
+          </PersonalInfo>
+        </div>
         <Button
-          text="Salvar mudanças"
+          text={onlyRead === true ? "Editar" : "Salvar mudanças"}
           login={true}
           action={() => setOnlyRead(!onlyRead)}
         />
