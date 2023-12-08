@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useLogin } from "../features/account/useLogin";
 import RegisterCol from "./../features/account/RegisterCol";
 import RegisterInput from "./../features/account/RegisterInput";
+import CheckVisible from "./../features/account/CheckVisible";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -52,17 +53,12 @@ export default function Login() {
             action={(e) => setPassword(e.target.value)}
             value={password}
           />
-          <div className="  sm:mr-24 lg:mr-48 flex  gap-2">
-            <input
-              onChange={() => setVisiblePassword(!visiblePassword)}
-              id="passwordTurnVisible"
-              type="checkbox"
-              name="passwordTurnVisible"
-              value=""
-              className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-            />
-            <p className=" text-sm text-slate-50">Mostrar a senha?</p>
-          </div>
+          <CheckVisible
+            id={"passwordTurnVisible"}
+            onChange={() => setVisiblePassword(!visiblePassword)}
+            name={"passwordTurnVisible"}
+            text={"Mostrar a senha?"}
+          />
           <GoTo
             text="Não possui conta? Cadastre aqui."
             route="/account/signup"
