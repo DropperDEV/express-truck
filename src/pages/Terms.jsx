@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { useLoaderData } from "react-router-dom";
-import Term from "./Term";
-import { getTerms } from "../../services/apiTerms";
+import Term from "../features/terms/Term";
+import { getTerms } from "../services/apiTerms";
 
 export default function Terms() {
   const terms = useLoaderData();

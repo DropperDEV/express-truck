@@ -1,13 +1,13 @@
-import Card from "../../ui/Card";
-import Banner from "./Banner";
-import Slide from "../../ui/Slide";
-import Trucks from "../../ui/Trucks";
-import Form from "../budget/Form";
-import Feature from "./Feature";
-import User from "../../ui/Icons/User";
-import TermsIcon from "../../ui/Icons/TermsIcon";
-import HandShake from "./../../ui/Icons/HandShake";
-import Truck from '../../ui/Icons/Truck';
+import Card from "../ui/Card";
+import Banner from "../features/home/Banner";
+import Slide from "../ui/Slide";
+import Trucks from "../ui/Trucks";
+import Form from "../features/budget/Form";
+import Feature from "../features/home/Feature";
+import User from "../ui/Icons/User";
+import TermsIcon from "../ui/Icons/TermsIcon";
+import HandShake from "../ui/Icons/HandShake";
+import Truck from '../ui/Icons/Truck';
 
 export default function Home() {
   return (

@@ -1,13 +1,13 @@
-import Email from "./../../ui/Icons/Email";
-import Phone from "./../../ui/Icons/Phone";
-import Input from "./../../ui/Input";
-import Button from "./../../ui/Button";
-import Slide from "../../ui/Slide";
-import SideBySide from "./../../ui/SideBySide";
-import TextIntro from "./TextIntro";
-import Subtitle from "./Subtitle";
-import Contact from "./Contact";
-import Trucker from "./Trucker";
+import Email from "../ui/Icons/Email";
+import Phone from "../ui/Icons/Phone";
+import Input from "../ui/Input";
+import Button from "../ui/Button";
+import Slide from "../ui/Slide";
+import SideBySide from "../ui/SideBySide";
+import TextIntro from "../features/partners/TextIntro";
+import Subtitle from "../features/partners/Subtitle";
+import Contact from "../features/partners/Contact";
+import Trucker from "../features/partners/Trucker";
 
 export default function Partners() {
   return (
@@ -55,7 +55,7 @@ export default function Partners() {
         </div>
       </SideBySide>
 
-      <section className="mb-24 flex flex-row items-center justify-center  gap-10 lg:items-start lg:justify-around">
+      <section className="mb-24 flex flex-col lg:flex-row items-center justify-center  gap-10 lg:items-start lg:justify-around">
         <form
           action=""
           className="flex flex-col items-center justify-center gap-10"
@@ -64,7 +64,7 @@ export default function Partners() {
             <div className="mb-10 border-b-2 border-[#675b5b80] pb-2 ">
               <Subtitle text={"Preencha o campo abaixo"} />
             </div>
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col   gap-5">
               <Input text="Nome  " inputType={"maWidth"} />
               <Input text="Email" inputType={"maWidth"} />
               <Input text="CNPJ" inputType={"maWidth"} />

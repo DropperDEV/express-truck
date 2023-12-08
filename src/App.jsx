@@ -1,12 +1,12 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AppLayout from "./ui/AppLayout";
-import Home from "./features/home/Home";
-import Terms, { loader as termsLoader } from "./features/terms/Terms";
-import Account from "./features/account/Account";
-import About from "./features/about/About";
-import Partners from "./features/partners/Partners";
-import Login from "./features/account/Login";
-import SignUp from "./features/account/SignUp";
+import Home from "./pages/Home";
+import Terms, { loader as termsLoader } from "./pages/Terms";
+import Account from "./pages/Account";
+import About from "./pages/About";
+import Partners from "./pages/Partners";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 

@@ -1,6 +1,6 @@
-import SideBySide from "../../ui/SideBySide";
-import TextIntro from "../partners/TextIntro";
-import Subtitle from "../partners/Subtitle";
+import SideBySide from "../ui/SideBySide";
+import TextIntro from "../features/partners/TextIntro";
+import Subtitle from "../features/partners/Subtitle";
 
 export default function About() {
   return (

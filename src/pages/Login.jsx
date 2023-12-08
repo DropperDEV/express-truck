@@ -1,12 +1,12 @@
-import Button from "./../../ui/Button";
-import Input from "./../../ui/Input";
-import Welcome from "./Welcome";
-import TextEscape from "./TextEscape";
-import Title from "./Title";
-import Confirm from "./Confirm";
-import InputArea from "./InputArea";
+import Button from "../ui/Button";
+import Input from "../ui/Input";
+import Welcome from "../features/account/Welcome";
+import TextEscape from "../features/account/TextEscape";
+import Title from "../features/account/Title";
+import Confirm from "../features/account/Confirm";
+import InputArea from "../features/account/InputArea";
 import { useState } from "react";
-import { useLogin } from './useLogin';
+import { useLogin } from '../features/account/useLogin';
 
 export default function Login() {
   const [email, setEmail] = useState("");
