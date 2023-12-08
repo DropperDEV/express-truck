@@ -1,23 +1,21 @@
-import Button from "../ui/Button";
-import Input from "../ui/Input";
-import Welcome from "../features/account/Welcome";
-import TextEscape from "../features/account/TextEscape";
+import GoTo from "../features/account/GoTo";
 import Title from "../features/account/Title";
-import Confirm from "../features/account/Confirm";
-import InputArea from "../features/account/InputArea";
+import Confirm from "../features/account/LoginConfirm";
+import RegisterMainInputs from "../features/account/RegisterMainInputs";
 import { useState } from "react";
-import { useLogin } from '../features/account/useLogin';
+import { useLogin } from "../features/account/useLogin";
+import RegisterCol from "./../features/account/RegisterCol";
+import RegisterInput from "./../features/account/RegisterInput";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const {login} = useLogin()
-
+  const { login } = useLogin();
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(email, password)
+    console.log(email, password);
     if (!email || !password) return;
     login(
       { email, password },
@@ -26,10 +24,9 @@ export default function Login() {
           setEmail("");
           setPassword("");
         },
-      }
+      },
     );
   }
-
 
   return (
     <form
@@ -37,45 +34,30 @@ export default function Login() {
       className=" flex h-[60rem] flex-col items-center justify-center gap-5  bg-[url('../../../public/loginBG.png')]
     bg-left-top bg-no-repeat  sm:gap-24 md:flex-row  "
     >
-      <Confirm>
-        <div className="flex w-fit flex-col lg:px-7 lg:pt-8 xl:gap-7 xl:px-12 xl:pt-14">
-          <Welcome>
-            Bem <br className="mb-4" /> Vindo!
-          </Welcome>
-          <Button text="Entrar" login={true} />
-          <TextEscape text="Voltar ao inicio" route="/" />
-        </div>
-      </Confirm>
-
-      <div className="flex flex-col gap-4 sm:gap-6 ">
-        <Title title="Login" />{" "}
-        <InputArea>
-          <div className="flex flex-col items-center justify-center gap-5 ">
-            <Input
-              inputType="Login/Register"
-              text="Email"
-              name={"email"}
-              action={(e) => setEmail(e.target.value)}
-              type="email"
-              value={email}
-            />
-            <Input
-              inputType="Login/Register"
-              text="Senha"
-              type="password"
-              name={"password"}
-              action={(e) => setPassword(e.target.value)}
-              value={password}
-            />
-            
-          </div>
-
-          <TextEscape
+      <Confirm />
+      <RegisterCol>
+        <Title title="Login" />
+        <RegisterMainInputs>
+          <RegisterInput
+            text="Email"
+            name={"email"}
+            action={(e) => setEmail(e.target.value)}
+            type="email"
+            value={email}
+          />
+          <RegisterInput
+            text="Senha"
+            type="password"
+            name={"password"}
+            action={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+          <GoTo
             text="Não possui conta? Cadastre aqui."
             route="/account/signup"
           />
-        </InputArea>
-      </div>
+        </RegisterMainInputs>
+      </RegisterCol>
     </form>
   );
 }

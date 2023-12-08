@@ -1,10 +1,10 @@
 import Button from "../ui/Button";
 import Input from "../ui/Input";
 import Welcome from "../features/account/Welcome";
-import TextEscape from "../features/account/TextEscape";
+import GoTo from "../features/account/GoTo";
 import Title from "../features/account/Title";
-import Confirm from "../features/account/Confirm";
-import InputArea from "../features/account/InputArea";
+import LoginConfirm from "../features/account/LoginConfirm";
+import InputArea from "../features/account/RegisterMainInputs";
 import { useState } from "react";
 
 import { createUser } from "../services/apiUsers";
@@ -48,15 +48,14 @@ export default function SignUp() {
       className="flex h-[60rem] flex-col items-center justify-center gap-5 bg-[url('../../../public/loginBG.png')] bg-left-top  bg-no-repeat
     sm:gap-24 md:flex-row  md:bg-[url('../../../public/signBG.png')] md:bg-right-bottom  "
     >
-      <Confirm>
+      <LoginConfirm/>
         <div className="flex w-fit flex-col gap-7 px-7 pt-10">
           <Welcome type="Sign">
             É um prazer <br /> lhe ter <br /> conosco!
           </Welcome>
           <Button text="Criar" login={true} />
-          <TextEscape text="Voltar ao inicio" route="/" />
+          <GoTo text="Voltar ao inicio" route="/" />
         </div>
-      </Confirm>
 
       <div className="flex flex-col gap-6 ">
         <Title title="Cadastrar" />{" "}
@@ -85,7 +84,7 @@ export default function SignUp() {
             />
           </div>
 
-          <TextEscape text="Já possui conta? Entrar." route="/account/login" />
+          <GoTo text="Já possui conta? Entrar." route="/account/login" />
         </InputArea>
       </div>
     </form>

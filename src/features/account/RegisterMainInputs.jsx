@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-export default function InputArea({ children }) {
+export default function RegisterMainInputs({ children }) {
   return (
     <div
       
