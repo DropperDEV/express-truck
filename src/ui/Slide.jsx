@@ -15,7 +15,7 @@ export default function Slide({type, textElement}) {
       </>
     );
   return (
-    <div className=" mb-24 flex items-center justify-center bg-slate-950 p-8 2xl:p-10  text-center text-xl font-bold text-slate-50 sm:text-2xl">
+    <div className=" mb-24 flex items-center justify-center bg-slate-950 p-8 2xl:p-10  text-center text-lg font-bold text-slate-50 sm:text-2xl">
       {textElement}
     </div>
   );

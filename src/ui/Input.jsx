@@ -34,14 +34,7 @@ export default function Input({
         className="p-1"
       />
     );
-  if (inputType === "big")
-    return (
-      <textarea
-        className="resize-none bg-gray-1000"
-        cols="25"
-        rows="5"
-      ></textarea>
-    );
+
   if (inputType === "Login/Register")
     return (
       <input
@@ -74,7 +67,7 @@ export default function Input({
     <input
       type="text"
       placeholder={text}
-      className="w-fit bg-gray-1000 sm:px-8 sm:py-2"
+      className="w-fit bg-gray-1000 sm:px-8 sm:py-2 p-1"
     />
   );
 }

@@ -14,7 +14,7 @@ export default function Button({ text, login, maxWidth, action }) {
       </button>
     );
   return (
-    <button className="rounded-2xl bg-violet-1000 px-10 py-4 text-slate-50">
+    <button className="rounded-2xl bg-violet-1000 w-fit px-10 py-4 text-slate-50">
       {text}
     </button>
   );
