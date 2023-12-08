@@ -1,14 +1,39 @@
 /* eslint-disable react/prop-types */
-import { IMaskInput } from 'react-imask';
+import { IMaskInput } from "react-imask";
 
 export default function Input({
   inputType,
   text,
   name,
   action,
-  type,  
-  value
+  type,
+  value,
+  onlyRead,
+  mask
 }) {
+  if (onlyRead === true)
+    return (
+      <IMaskInput
+        type={type}
+        defaultValue={value}
+        name={name}
+        onChange={action}
+        disabled
+        className="bg-gray-1100"
+      />
+    );
+
+  if (onlyRead === false)
+    return (
+      <IMaskInput
+        mask={mask}
+        type={type}
+        defaultValue={value}
+        name={name}
+        onChange={action}
+        className="p-1"
+      />
+    );
   if (inputType === "big")
     return (
       <textarea
@@ -28,14 +53,14 @@ export default function Input({
         value={value}
       />
     );
-    if (inputType === "CPF")
+  if (inputType === "CPF")
     return (
       <IMaskInput
-      mask="000.000.000-00"
-      placeholder="Digite o seu CPF"
-      className="w-fit rounded-lg bg-slate-50 px-2  py-2 text-sm focus:outline-none sm:px-6 sm:py-3 sm:text-base lg:w-96 lg:py-5"
-      onChange={action}
-    />
+        mask="000.000.000-00"
+        placeholder="Digite o seu CPF"
+        className="w-fit rounded-lg bg-slate-50 px-2  py-2 text-sm focus:outline-none sm:px-6 sm:py-3 sm:text-base lg:w-96 lg:py-5"
+        onChange={action}
+      />
     );
   if (inputType === "maWidth")
     return (

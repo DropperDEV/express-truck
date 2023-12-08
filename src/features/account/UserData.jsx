@@ -2,7 +2,8 @@ import PersonalInfo from "./PersonalInfo";
 import { useState } from "react";
 import useUsers from "./useUsers";
 import Button from "../../ui/Button";
-import {useUpdateUser} from "./useUpdateUsers";
+import { useUpdateUser } from "./useUpdateUsers";
+import Input from "../../ui/Input";
 
 export default function UserData() {
   const [onlyRead, setOnlyRead] = useState(true);
@@ -42,38 +43,52 @@ export default function UserData() {
         onSubmit={handleSubmit}
         className=" flex flex-col gap-3 sm:grid  sm:grid-cols-2"
       >
-        <PersonalInfo
-          infoName="CPF"
-          info={newCpf
-            .toString()
-            .replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4")}
-          name={"cpf"}
-          action={(e) => setNewCpf(e.target.value)}
-          edit={onlyRead}
-        />
-        <PersonalInfo
-          infoName="ENDEREÇO"
-          info={newAddress}
-          name={"address"}
-          action={(e) => setNewAddress(e.target.value)}
-          edit={onlyRead}
-        />
-        <PersonalInfo
-          infoName="EMAIL"
-          info={newEmail}
-          name={"email"}
-          action={(e) => setNewEmail(e.target.value)}
-          edit={onlyRead}
-        />
-        <PersonalInfo
-          infoName="TELEFONE"
-          info={newPhone
-            .toString()
-            .replace(/(\d{2})(\d{1})(\d{4})(\d{4})/, "($1) $2 $3-$4")}
-          name={"phone"}
-          action={(e) => setNewPhone(e.target.value)}
-          edit={onlyRead}
-        />
+        <PersonalInfo>
+          {" "}
+          <p className="uppercase">CPF</p>
+          <Input
+            value={newCpf}
+            action={(e) => setNewCpf(e.target.value)}
+            type={"cpf"}
+            name={"cpf"}
+            onlyRead={onlyRead}
+            mask={"000.000.000-00"}
+          />
+        </PersonalInfo>
+        <PersonalInfo>
+          {" "}
+          <p className="uppercase">ENDEREÇO</p>
+          <Input
+            value={newAddress}
+            action={(e) => setNewAddress(e.target.value)}
+            type={"address"}
+            name={"address"}
+            onlyRead={onlyRead}
+          />
+        </PersonalInfo>
+        <PersonalInfo>
+          {" "}
+          <p className="uppercase">EMAIL</p>
+          <Input
+            value={newEmail}
+            action={(e) => setNewEmail(e.target.value)}
+            type={"email"}
+            name={"email"}
+            onlyRead={onlyRead}
+          />
+        </PersonalInfo>
+        <PersonalInfo>
+          {" "}
+          <p className="uppercase">TELEFONE</p>
+          <Input
+            value={newPhone}
+            action={(e) => setNewPhone(e.target.value)}
+            type={"phone"}
+            name={"phone"}
+            onlyRead={onlyRead}
+            mask={"(00) 90000-0000"}
+          />
+        </PersonalInfo>
 
         <Button
           text="Salvar mudanças"
