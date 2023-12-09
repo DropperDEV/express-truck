@@ -1,11 +1,15 @@
 /* eslint-disable react/prop-types */
 
-
 export default function Button({ text, login, maxWidth, action }) {
   if (login === true)
     return (
-      
-        <button  type="submit" onClick={action}>{text}</button>
+      <button
+        type="submit"
+        onClick={action}
+        className="rounded-2xl bg-slate-50 py-2 px-5 text-stone-950 text-sm"
+      >
+        {text}
+      </button>
     );
   if (maxWidth === true)
     return (
@@ -14,7 +18,7 @@ export default function Button({ text, login, maxWidth, action }) {
       </button>
     );
   return (
-    <button className="rounded-2xl bg-violet-1000 w-fit px-10 py-4 text-slate-50">
+    <button className="w-fit rounded-2xl bg-violet-1000 px-10 py-4 text-slate-50">
       {text}
     </button>
   );

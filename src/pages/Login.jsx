@@ -1,6 +1,6 @@
 import GoTo from "../features/account/GoTo";
 import Title from "../features/account/Title";
-import Confirm from "../features/account/LoginConfirm";
+import RegisterConfirm from "../features/account/RegisterConfirm";
 import RegisterMainInputs from "../features/account/RegisterMainInputs";
 import { useState } from "react";
 import { useLogin } from "../features/account/useLogin";
@@ -35,7 +35,11 @@ export default function Login() {
       className=" flex h-[60rem] flex-col items-center justify-center gap-5  bg-[url('../../../public/loginBG.png')]
     bg-left-top bg-no-repeat  sm:gap-24 md:flex-row  "
     >
-      <Confirm />
+      <RegisterConfirm
+        buttonText={"Entrar"}
+        title={"Bem  Vindo!"}
+        backText={"Voltar ao inicio"}
+      />
       <RegisterCol>
         <Title title="Login" />
         <RegisterMainInputs>

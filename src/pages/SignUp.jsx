@@ -1,14 +1,12 @@
-import Button from "../ui/Button";
 import Input from "../ui/Input";
-import Welcome from "../features/account/Welcome";
 import GoTo from "../features/account/GoTo";
 import Title from "../features/account/Title";
-import LoginConfirm from "../features/account/LoginConfirm";
 import InputArea from "../features/account/RegisterMainInputs";
 import { useState } from "react";
 
 import { createUser } from "../services/apiUsers";
 import { useNavigate } from "react-router-dom";
+import RegisterConfirm from "./../features/account/RegisterConfirm";
 
 export default function SignUp() {
   const [user, setUser] = useState({
@@ -40,22 +38,18 @@ export default function SignUp() {
     }
   }
 
-  
-
   return (
     <form
       onSubmit={handleSubmit}
       className="flex h-[60rem] flex-col items-center justify-center gap-5 bg-[url('../../../public/loginBG.png')] bg-left-top  bg-no-repeat
     sm:gap-24 md:flex-row  md:bg-[url('../../../public/signBG.png')] md:bg-right-bottom  "
     >
-      <LoginConfirm/>
-        <div className="flex w-fit flex-col gap-7 px-7 pt-10">
-          <Welcome type="Sign">
-            É um prazer <br /> lhe ter <br /> conosco!
-          </Welcome>
-          <Button text="Criar" login={true} />
-          <GoTo text="Voltar ao inicio" route="/" />
-        </div>
+      <RegisterConfirm
+        buttonText={"Criar"}
+        title={"É um prazer lhe ter conosco!"}
+        backText={"Voltar ao inicio"}
+      />
+      <div className="flex w-fit flex-col gap-7 px-7 pt-10"></div>
 
       <div className="flex flex-col gap-6 ">
         <Title title="Cadastrar" />{" "}
