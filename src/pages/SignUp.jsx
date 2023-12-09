@@ -1,12 +1,13 @@
-import Input from "../ui/Input";
 import GoTo from "../features/account/GoTo";
 import Title from "../features/account/Title";
-import InputArea from "../features/account/RegisterMainInputs";
 import { useState } from "react";
 
 import { createUser } from "../services/apiUsers";
 import { useNavigate } from "react-router-dom";
 import RegisterConfirm from "./../features/account/RegisterConfirm";
+import RegisterCol from "./../features/account/RegisterCol";
+import RegisterMainInputs from "../features/account/RegisterMainInputs";
+import RegisterInput from "../features/account/RegisterInput";
 
 export default function SignUp() {
   const [user, setUser] = useState({
@@ -49,38 +50,35 @@ export default function SignUp() {
         title={"É um prazer lhe ter conosco!"}
         backText={"Voltar ao inicio"}
       />
-      <div className="flex w-fit flex-col gap-7 px-7 pt-10"></div>
 
-      <div className="flex flex-col gap-6 ">
+      <RegisterCol>
         <Title title="Cadastrar" />{" "}
-        <InputArea>
+        <RegisterMainInputs>
           <div className="flex flex-col items-center justify-center gap-5 ">
-            <Input
-              inputType="Login/Register"
-              text={"Email"}
+            <RegisterInput
+              text="Email"
               name={"email"}
-              type={"email"}
               action={handleChange}
+              type="email"
             />
-            <Input
-              inputType="Login/Register"
-              text={"Senha"}
+            <RegisterInput
+              text="Senha"
               name={"password"}
-              type={"password"}
               action={handleChange}
+              type="password"
             />
-            <Input
-              inputType="CPF"
-              text={"Digite um CPF no formato: xxx.xxx.xxx-xx"}
+            <RegisterInput
+              text="Digite um CPF no formato: xxx.xxx.xxx-xx"
               name={"cpf"}
               action={handleChange}
-              type={"number"}
+              type="number"
+              mask={"000.000.000-00"}
             />
           </div>
 
           <GoTo text="Já possui conta? Entrar." route="/account/login" />
-        </InputArea>
-      </div>
+        </RegisterMainInputs>
+      </RegisterCol>
     </form>
   );
 }
