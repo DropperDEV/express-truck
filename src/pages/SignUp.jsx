@@ -8,6 +8,7 @@ import RegisterConfirm from "./../features/account/RegisterConfirm";
 import RegisterCol from "./../features/account/RegisterCol";
 import RegisterMainInputs from "../features/account/RegisterMainInputs";
 import RegisterInput from "../features/account/RegisterInput";
+import CheckVisible from "./../features/account/CheckVisible";
 
 export default function SignUp() {
   const [user, setUser] = useState({
@@ -15,6 +16,7 @@ export default function SignUp() {
     password: "",
     cpf: "",
   });
+  const [visiblePassword, setVisiblePassword] = useState(false);
   const navigate = useNavigate();
 
   function handleChange(event) {
@@ -65,16 +67,22 @@ export default function SignUp() {
               text="Senha"
               name={"password"}
               action={handleChange}
-              type="password"
+              type={visiblePassword ? "text" : "password"}
             />
             <RegisterInput
               text="Digite um CPF no formato: xxx.xxx.xxx-xx"
               name={"cpf"}
               action={handleChange}
-              type="number"
+              type={"number"}
               mask={"000.000.000-00"}
             />
           </div>
+          <CheckVisible
+            id={"passwordTurnVisible"}
+            onChange={() => setVisiblePassword(!visiblePassword)}
+            name={"passwordTurnVisible"}
+            text={"Mostrar a senha?"}
+          />
 
           <GoTo text="Já possui conta? Entrar." route="/account/login" />
         </RegisterMainInputs>
