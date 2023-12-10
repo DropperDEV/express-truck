@@ -1,13 +1,13 @@
 import PersonalInfo from "./PersonalInfo";
 import { useState } from "react";
-import useUsers from "./useUsers";
+import useUser from "./useUser";
 import Button from "../../ui/Button";
 import { useUpdateUser } from "./useUpdateUsers";
 import Input from "../../ui/Input";
 
 export default function UserData() {
   const [onlyRead, setOnlyRead] = useState(true);
-  const { isLoading, user, error } = useUsers();
+  const { isLoading, user, error } = useUser();
 
   const currentEmail = user?.email || "";
   const currentCpf = user?.user_metadata?.cpf || "";
