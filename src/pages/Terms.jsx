@@ -11,7 +11,7 @@ export default function Terms() {
       <h1 className="text-3xl font-semibold uppercase">Nossos Termos</h1>
       <div className="flex flex-col  gap-6 mb-24">
         {terms.map((term) => (
-          <Term title={term.title} key={term.title} text={term.text} />
+          <Term title={term.title} key={term.id} text={term.text} />
         ))}
       </div>
     </div>
