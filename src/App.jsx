@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import PageNotFound from "./pages/PageNotFound";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -44,6 +45,10 @@ export default function App() {
       path: "/account/signup",
       element: <SignUp />,
     },
+    {
+      path: "*",
+      element: <PageNotFound/>
+    }
   ]);
 
   return (
