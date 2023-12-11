@@ -15,7 +15,7 @@ export default function Partners() {
       <Slide
         type="modern"
         textElement={
-          <h1 className="text-4xl font-semibold uppercase md:text-5xl lg:text-6xl">
+          <h1 className="text-3xl font-semibold uppercase md:text-5xl lg:text-6xl">
             Seja parceiro
           </h1>
         }

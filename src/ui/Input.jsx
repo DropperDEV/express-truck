@@ -9,7 +9,7 @@ export default function Input({
   type,
   value,
   onlyRead,
-  mask
+  mask,
 }) {
   if (onlyRead === true)
     return (
@@ -35,7 +35,6 @@ export default function Input({
       />
     );
 
-  
   if (inputType === "CPF")
     return (
       <IMaskInput
@@ -48,16 +47,21 @@ export default function Input({
   if (inputType === "maWidth")
     return (
       <input
-        type="text"
+        type={type}
+        name={type}
+        value={value}
         className="w-fit rounded-lg bg-gray-1000  px-14 py-3  focus:outline-none  md:px-24  "
         placeholder={text}
+        onChange={action}
       />
     );
   return (
     <input
-      type="text"
+      name={name}
+      value={value}
       placeholder={text}
-      className="w-fit bg-gray-1000 sm:px-8 sm:py-2 p-1"
+      className="w-fit bg-gray-1000 p-1 sm:px-8 sm:py-2"
+      onChange={action}
     />
   );
 }
