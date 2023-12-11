@@ -48,7 +48,7 @@ export default function Input({
     return (
       <input
         type={type}
-        name={type}
+        name={name}
         value={value}
         className="w-fit rounded-lg bg-gray-1000  px-14 py-3  focus:outline-none  md:px-24  "
         placeholder={text}

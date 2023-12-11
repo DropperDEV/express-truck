@@ -8,8 +8,43 @@ import TextIntro from "../features/partners/TextIntro";
 import Subtitle from "../features/partners/Subtitle";
 import Contact from "../features/partners/Contact";
 import Trucker from "../features/partners/Trucker";
+import { useState } from "react";
+import { createPartner } from "../services/apiPartner";
 
 export default function Partners() {
+  const [partner, setPartner] = useState({
+    email: "",
+    nome: "",
+    cnpj: "",
+    cidade_estado: "",
+    empresa: "",
+    quantidade_veiculos: "",
+    quantidade_func: "",
+  });
+
+
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    try {
+      await createPartner(partner);
+      console.log(partner)
+    } catch (error) {
+      console.error(error);
+      throw new Error("Some error");
+    }
+  }
+
+  function handleChange(event) {
+    setPartner((prevFormData) => {
+      return {
+        ...prevFormData,
+        [event.target.name]: event.target.value,
+      };
+    });
+  }
+
   return (
     <div className="relative mt-44 bg-slate-50  ">
       <Slide
@@ -55,9 +90,9 @@ export default function Partners() {
         </div>
       </SideBySide>
 
-      <section className="mb-24 flex flex-col lg:flex-row items-center justify-center  gap-10 lg:items-start lg:justify-around">
+      <section className="mb-24 flex flex-col items-center justify-center gap-10  lg:flex-row lg:items-start lg:justify-around">
         <form
-          action=""
+          onSubmit={handleSubmit}
           className="flex flex-col items-center justify-center gap-10"
         >
           <div className="mb-7 flex flex-col items-center justify-center gap-7">
@@ -65,11 +100,36 @@ export default function Partners() {
               <Subtitle text={"Preencha o campo abaixo"} />
             </div>
             <div className="flex flex-col   gap-5">
-              <Input text="Nome  " inputType={"maWidth"} />
-              <Input text="Email" inputType={"maWidth"} />
-              <Input text="CNPJ" inputType={"maWidth"} />
-              <Input text="Empresa" inputType={"maWidth"} />
-              <Input text="Cidade e Estado" inputType={"maWidth"} />
+              <Input
+                text="Nome"
+                inputType={"maWidth"}
+                name={"nome"}
+                action={handleChange}
+              />
+              <Input
+                text="Email"
+                inputType={"maWidth"}
+                name={"email"}
+                action={handleChange}
+              />
+              <Input
+                text="CNPJ"
+                inputType={"maWidth"}
+                name={"cnpj"}
+                action={handleChange}
+              />
+              <Input
+                text="Empresa"
+                inputType={"maWidth"}
+                name={"empresa"}
+                action={handleChange}
+              />
+              <Input
+                text="Cidade e Estado"
+                inputType={"maWidth"}
+                name={"cidade_estado"}
+                action={handleChange}
+              />
             </div>
           </div>
           <div className="flex w-max flex-col justify-center     gap-7">
@@ -77,10 +137,17 @@ export default function Partners() {
               <Subtitle text={" Transporte"} />
             </div>
             <div className="flex flex-col items-center justify-center gap-5">
-              <Input text={"Quantidade de veículos"} inputType={"maWidth"} />
+              <Input
+                text={"Quantidade de veículos"}
+                inputType={"maWidth"}
+                name={"quantidade_veiculos"}
+                action={handleChange}
+              />
               <Input
                 text={"Quantidade de funcionários"}
                 inputType={"maWidth"}
+                name={"quantidade_func"}
+                action={handleChange}
               />
             </div>
           </div>
