@@ -117,6 +117,7 @@ export default function Partners() {
                 inputType={"maWidth"}
                 name={"cnpj"}
                 action={handleChange}
+                mask={"00.000.000/0001-00"}
               />
               <Input
                 text="Empresa"

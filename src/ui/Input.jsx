@@ -46,22 +46,24 @@ export default function Input({
     );
   if (inputType === "maWidth")
     return (
-      <input
-        type={type}
-        name={name}
-        value={value}
-        className="w-fit rounded-lg bg-gray-1000  px-14 py-3  focus:outline-none  md:px-24  "
-        placeholder={text}
-        onChange={action}
+      <IMaskInput
+      type={type}
+      defaultValue={value}
+      mask={mask}
+      name={name}
+      placeholder={text}
+      onChange={action}
+      className="w-fit rounded-lg bg-gray-1000  px-14 py-3  focus:outline-none  md:px-24  "
       />
     );
   return (
-    <input
-      name={name}
-      value={value}
-      placeholder={text}
-      className="w-fit bg-gray-1000 p-1 sm:px-8 sm:py-2"
-      onChange={action}
-    />
+    <IMaskInput
+        type={type}
+        defaultValue={value}
+        mask={mask}
+        name={name}
+        onChange={action}
+        className="w-fit bg-gray-1000 p-1 sm:px-8 sm:py-2"
+        />
   );
 }
