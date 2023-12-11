@@ -12,6 +12,7 @@ export async function createUser(user) {
       },
     });
     if (error) {
+      alert("Digite todos as informações corretamente!");
       console.error("Error creating user");
     }
     if (data) {

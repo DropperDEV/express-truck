@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export default function Login() {
   return (
-    <Link to='account/login'> <svg
+    <Link to='account/myaccount'> <svg
     width="100"
     height="70"
     viewBox="0 0 100 100"

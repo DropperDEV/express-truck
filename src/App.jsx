@@ -3,7 +3,7 @@ import AppLayout from "./ui/AppLayout";
 import Home from "./pages/Home";
 import Terms, { loader as termsLoader } from "./pages/Terms";
 import Account from "./pages/Account";
-import About from "./pages/About";
+// import About from "./pages/About";
 import Partners from "./pages/Partners";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
@@ -41,7 +41,7 @@ export default function App() {
          
         },
 
-        { path: "/about", element: <About /> },
+        // { path: "/about", element: <About /> },
         { path: "/partners", element: <Partners /> },
       ],
     },

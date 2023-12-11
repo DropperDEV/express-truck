@@ -4,7 +4,7 @@ import FormCol from "./FormCol.jsx";
 
 export default function FormMain() {
   return (
-    <form className="flex flex-col   items-center justify-center gap-8">
+    <div className="flex flex-col   items-center justify-center gap-8">
       <div className="sm:grid sm:grid-cols-2 gap-20">
         <FormCol>
           <FormInputCol title={"Nome"} />
@@ -17,6 +17,6 @@ export default function FormMain() {
         </FormCol>
       </div>
       <Button text={"Enviar"} />
-    </form>
+    </div>
   );
 }

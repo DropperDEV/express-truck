@@ -27,7 +27,6 @@ export default function SignUp() {
       };
     });
   }
-  console.log(user);
 
   async function handleSubmit(event) {
     event.preventDefault();

@@ -16,8 +16,8 @@ export default function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(email, password);
-    if (!email || !password) return;
+
+    if (!email || !password) return alert("Digite todos as informações corretamente!")
     login(
       { email, password },
       {
