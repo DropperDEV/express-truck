@@ -9,6 +9,7 @@ import RegisterCol from "./../features/account/RegisterCol";
 import RegisterMainInputs from "../features/account/RegisterMainInputs";
 import RegisterInput from "../features/account/RegisterInput";
 import CheckVisible from "./../features/account/CheckVisible";
+import { Helmet } from "react-helmet";
 
 export default function SignUp() {
   const [user, setUser] = useState({
@@ -46,6 +47,9 @@ export default function SignUp() {
       className="flex h-[60rem] flex-col items-center justify-center gap-5 bg-[url('../../../public/loginBG.png')] bg-left-top  bg-no-repeat
     sm:gap-24 md:flex-row  md:bg-[url('../../../public/signBG.png')] md:bg-right-bottom  "
     >
+      <Helmet>
+        <title>Cadastrar</title>
+      </Helmet>
       <RegisterConfirm
         buttonText={"Criar"}
         title={"É um prazer lhe ter conosco!"}

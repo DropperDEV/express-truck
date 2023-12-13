@@ -7,6 +7,7 @@ import { useLogin } from "../features/account/useLogin";
 import RegisterCol from "./../features/account/RegisterCol";
 import RegisterInput from "./../features/account/RegisterInput";
 import CheckVisible from "./../features/account/CheckVisible";
+import { Helmet } from "react-helmet";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,6 +36,9 @@ export default function Login() {
       className=" flex h-[60rem] flex-col items-center justify-center gap-5  bg-[url('../../../public/loginBG.png')]
     bg-left-top bg-no-repeat  sm:gap-24 md:flex-row  "
     >
+      <Helmet>
+        <title>Entrar</title>
+      </Helmet>
       <RegisterConfirm
         buttonText={"Entrar"}
         title={"Bem  Vindo!"}

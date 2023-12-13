@@ -10,6 +10,7 @@ import Contact from "../features/partners/Contact";
 import Trucker from "../features/partners/Trucker";
 import { useState } from "react";
 import { createPartner } from "../services/apiPartner";
+import { Helmet } from "react-helmet";
 
 export default function Partners() {
   const [partner, setPartner] = useState({
@@ -47,6 +48,9 @@ export default function Partners() {
 
   return (
     <div className="relative mt-44 bg-slate-50  ">
+      <Helmet>
+        <title>Seja Parceiro</title>
+      </Helmet>
       <Slide
         type="modern"
         textElement={
