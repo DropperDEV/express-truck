@@ -41,6 +41,7 @@ export default function SignUp() {
     }
   }
 
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -57,7 +58,7 @@ export default function SignUp() {
       />
 
       <RegisterCol>
-        <Title title="Cadastrar" />{" "}
+        <Title title="Cadastrar" />
         <RegisterMainInputs>
           <div className="flex flex-col items-center justify-center gap-5 ">
             <RegisterInput
