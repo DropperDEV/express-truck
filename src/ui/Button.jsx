@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
+
 export default function Button({ text, login, maxWidth, action }) {
   if (login === true)
     return (
@@ -18,8 +20,8 @@ export default function Button({ text, login, maxWidth, action }) {
       </button>
     );
   return (
-    <button className="w-fit rounded-2xl bg-violet-1000 px-10 py-4 text-slate-50" onClick={action}>
+    <Link to={action} className="w-fit rounded-2xl bg-violet-1000 px-10 py-4 text-slate-50" onClick={action}>
       {text}
-    </button>
+    </Link>
   );
 }

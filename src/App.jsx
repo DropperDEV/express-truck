@@ -25,15 +25,15 @@ export default function App() {
     {
       element: <AppLayout />,
       children: [
-        { path: "/", element: <Home /> },
+        { path: "/express-truck/", element: <Home /> },
         {
-          path: "/terms",
+          path: "/express-truck/terms",
           element: <Terms />,
 
           loader: termsLoader,
         },
         {
-          path: "/account/myaccount",
+          path: "/express-truck/account/myaccount",
           element: 
             <ProtectedRoute>
               <Account />
@@ -42,12 +42,12 @@ export default function App() {
         },
 
         // { path: "/about", element: <About /> },
-        { path: "/partners", element: <Partners /> },
+        { path: "/express-truck/partners", element: <Partners /> },
       ],
     },
-    { path: "/account/login", element: <Login /> },
+    { path: "/express-truck/account/login", element: <Login /> },
     {
-      path: "/account/signup",
+      path: "/express-truck/account/signup",
       element: <SignUp />,
     },
     {

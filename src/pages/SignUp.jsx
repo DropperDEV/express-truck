@@ -34,7 +34,7 @@ export default function SignUp() {
 
     try {
       await createUser(user);
-      navigate("/account/login");
+      navigate("/express-truck/account/login");
     } catch (error) {
       console.error(error);
       throw new Error("Some error");
@@ -45,8 +45,8 @@ export default function SignUp() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex h-[60rem] flex-col items-center justify-center gap-5 bg-[url('../../../public/loginBG.png')] bg-left-top  bg-no-repeat
-    sm:gap-24 md:flex-row  md:bg-[url('../../../public/signBG.png')] md:bg-right-bottom  "
+      className="flex h-[60rem] flex-col items-center justify-center gap-5 bg-[url('/express-truck/public/loginBG.png')] bg-left-top  bg-no-repeat
+    sm:gap-24 md:flex-row  md:bg-[url('/express-truck/public/signBG.png')] md:bg-right-bottom  "
     >
       <Helmet>
         <title>Cadastrar</title>
@@ -88,7 +88,7 @@ export default function SignUp() {
             text={"Mostrar a senha?"}
           />
 
-          <GoTo text="Já possui conta? Entrar." route="/account/login" />
+          <GoTo text="Já possui conta? Entrar." route="/express-truck/account/login" />
         </RegisterMainInputs>
       </RegisterCol>
     </form>

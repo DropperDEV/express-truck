@@ -6,10 +6,10 @@ export default function SignOutIcon() {
   function handleClick() {
     try {
       signOut();
-      navigate("/")
+      navigate("/express-truck/")
       
     } catch (error) {
-      console.log('Que q foi')
+      console.log(error)
     }
   }
   return (

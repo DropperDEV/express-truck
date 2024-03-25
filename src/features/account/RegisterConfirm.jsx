@@ -8,7 +8,7 @@ export default function RegisterConfirm({ title, buttonText, backText }) {
       <div className="flex w-fit flex-col justify-center items-center gap-2 ">
         <h2 className="text-2xl font-bold lg:text-3xl max-w-[200px] text-left mb-5">{title}</h2>
         <Button text={buttonText} login={true} />
-        <GoTo text={backText} route="/" />
+        <GoTo text={backText} route="/express-truck/" />
       </div>
     </div>
   );

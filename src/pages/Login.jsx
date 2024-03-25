@@ -33,7 +33,7 @@ export default function Login() {
   return (
     <form
       onSubmit={handleSubmit}
-      className=" flex h-[60rem] flex-col items-center justify-center gap-5  bg-[url('../../../public/loginBG.png')]
+      className=" flex h-[60rem] flex-col items-center justify-center gap-5  bg-[url('/express-truck/public/loginBG.png')]
     bg-left-top bg-no-repeat  sm:gap-24 md:flex-row  "
     >
       <Helmet>
@@ -69,7 +69,7 @@ export default function Login() {
           />
           <GoTo
             text="Não possui conta? Cadastre aqui."
-            route="/account/signup"
+            route="/express-truck/account/signup"
           />
         </RegisterMainInputs>
       </RegisterCol>

@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import FormInputCol from "./FormInputCol.jsx";
-import Button from "./../../ui/Button";
 import FormCol from "./FormCol.jsx";
 
 export default function FormMain({ setBudget }) {
@@ -17,16 +16,8 @@ export default function FormMain({ setBudget }) {
     <div className="flex flex-col   items-center justify-center gap-8">
       <div className="flex flex-col gap-14 sm:grid sm:grid-cols-2">
         <FormCol>
-          <FormInputCol
-            title={"Nome"}
-            action={handleChange}
-            name={"nome"}
-          />
-          <FormInputCol
-            title={"Email"}
-            action={handleChange}
-            name={"email"}
-          />
+          <FormInputCol title={"Nome"} action={handleChange} name={"nome"} />
+          <FormInputCol title={"Email"} action={handleChange} name={"email"} />
           <FormInputCol
             title={"Endereço"}
             action={handleChange}
@@ -52,7 +43,9 @@ export default function FormMain({ setBudget }) {
           />
         </FormCol>
       </div>
-      <Button text={"Enviar"} />
+      <button className="w-fit rounded-2xl bg-violet-1000 px-10 py-4 text-slate-50">
+        Enviar
+      </button>
     </div>
   );
 }
